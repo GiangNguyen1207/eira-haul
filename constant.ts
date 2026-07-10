@@ -69,6 +69,13 @@ export const STEPS = [
 export const PRODUCT_NOT_FOUND = "Product not found.";
 export const CATEGORY = "Category";
 
+// Footer
+export const FOOTER_ADDRESS = "Mannerheimintie 12, 00100 Helsinki, Finland";
+export const FOOTER_EMAIL = "hello@eirahaul.fi";
+export const FOOTER_PHONE = "+358 40 123 4567";
+export const BUSINESS_ID = "Business ID: 1234567-8";
+export const FOOTER_TEXT = `Sourced in Japan, delivered in Finland.`;
+
 // Cart / checkout
 export const MOBILEPAY_NUMBER = "040 1234567"; // TODO: replace with real MobilePay number
 export const ORDER_FROM_JAPAN = "Ready to order from Japan?";
