@@ -6,14 +6,14 @@ export const CATEGORIES_QUERY = defineQuery(`*[_type == "category"]{
   jpName,
   description,
   slug,
-  products[]->{
+  "products": *[_type == "product" && category == ^.slug]{
     id,
     productSlug,
     name,
     description,
     price,
     image,
-    category  
+    category
   }
 }`);
 
@@ -24,14 +24,14 @@ export const CATEGORY_BY_SLUG_QUERY =
   jpName,
   description,
   slug,
-  products[]->{
+  "products": *[_type == "product" && category == ^.slug]{
     id,
     productSlug,
     name,
     description,
     price,
     image,
-    category  
+    category
   }
 }`);
 

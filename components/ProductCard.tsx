@@ -45,9 +45,9 @@ export function ProductCard({ product, categorySlug }: ProductCardProps) {
 						{description}
 					</p>
 				)}
-				<div className="mt-5">
-					<AddToCart product={product} variant="compact" />
-				</div>
+				<p className="font-serif font-semibold text-xl text-foreground mt-5">
+					€{product.price.toFixed(2)}
+				</p>
 			</div>
 		</article>
 	);

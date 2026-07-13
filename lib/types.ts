@@ -1,6 +1,20 @@
-export interface CartItem {
+export type CartItem = {
 	id: number;
-	name?: string;
+	name: string;
 	price: number;
 	quantity: number;
+};
+
+export type CustomerDetailsInput = {
+	name: string;
+	phone: string;
+	email: string;
+};
+export interface OrderInput {
+	customer_name: string;
+	customer_email: string;
+	customer_phone: string;
+	items: CartItem[];
+	total: number;
+	reference: string;
 }

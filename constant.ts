@@ -77,7 +77,19 @@ export const BUSINESS_ID = "Business ID: 1234567-8";
 export const FOOTER_TEXT = `Sourced in Japan, delivered in Finland.`;
 
 // Cart / checkout
+export const CART_PAGE_TITLE = "Your cart";
+export const CART_PAGE_TITLE_JP = "カート";
+export const REVIEW_ORDER = "Review your order";
 export const MOBILEPAY_NUMBER = "040 1234567"; // TODO: replace with real MobilePay number
 export const ORDER_FROM_JAPAN = "Ready to order from Japan?";
 export const ORDER_FROM_JAPAN_DESCRIPTION =
 	"Browse our curated selection of skincare, snacks, supplements and matcha, all shipped with care from Tokyo to your door in Finland.";
+export const EMPTY_CART = "Your cart is empty.";
+export const CONFIRMATION_DETAILS = "Confirmation details";
+export const CONFIRMATION_DETAILS_DESCRIPTION =
+	"We will use these to confirm your order and delivery.";
+export const NAME = "Name";
+export const PHONE_NUMBER = "Phone number";
+export const EMAIL_ADDRESS = "Email address";
+export const PLACING_ORDER = "Placing order…";
+export const PLACE_ORDER = "Place order";
