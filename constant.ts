@@ -80,7 +80,7 @@ export const FOOTER_TEXT = `Sourced in Japan, delivered in Finland.`;
 export const CART_PAGE_TITLE = "Your cart";
 export const CART_PAGE_TITLE_JP = "カート";
 export const REVIEW_ORDER = "Review your order";
-export const MOBILEPAY_NUMBER = "040 1234567"; // TODO: replace with real MobilePay number
+export const MOBILEPAY_NUMBER = "040 1234567";
 export const ORDER_FROM_JAPAN = "Ready to order from Japan?";
 export const ORDER_FROM_JAPAN_DESCRIPTION =
 	"Browse our curated selection of skincare, snacks, supplements and matcha, all shipped with care from Tokyo to your door in Finland.";
@@ -93,3 +93,20 @@ export const PHONE_NUMBER = "Phone number";
 export const EMAIL_ADDRESS = "Email address";
 export const PLACING_ORDER = "Placing order…";
 export const PLACE_ORDER = "Place order";
+export const ERROR_PLACING_ORDER = "Something went wrong. Please try again.";
+
+// Confirmation page
+export const ORDER_RECEIVED = "Order received";
+export const ORDER_RECEIVED_JP = "注文受付";
+export const THANK_YOU = "Thank you,";
+export const COMPLETE_ORDER =
+	"Please complete the the MobilePay transfer of {amount} to confirm your order.";
+export const TO_CONFIRM_ORDER = "to confirm your order.";
+export const IMPORTANT = "Important:";
+export const NOTE =
+	"Your order can only be confirmed once payment is received. Include your reference {reference} in the MobilePay message.";
+export const CONTINUE_SHOPPING = "Continue shopping";
+export const SCAN_QR_CODE = "Scan the QR code or send to the number below.";
+export const MOBILEPAY_NUMBER_LABEL = "MobilePay number";
+export const PAYMENT_AMOUNT_LABEL = "Amount";
+export const REFERENCE_LABEL = "Reference (add to message)";

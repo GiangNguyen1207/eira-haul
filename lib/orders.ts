@@ -32,3 +32,14 @@ export async function createOrder(input: OrderInput): Promise<string> {
 
 	return order.id;
 }
+
+export async function getOrderByReference(reference: string) {
+	const { data, error } = await supabase
+		.from("orders")
+		.select("customer_name, reference, total, status, created_at")
+		.eq("reference", reference)
+		.single();
+
+	if (error) return null;
+	return data;
+}

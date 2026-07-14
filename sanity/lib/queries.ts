@@ -12,6 +12,8 @@ export const CATEGORIES_QUERY = defineQuery(`*[_type == "category"]{
     name,
     description,
     price,
+    ingredients,
+    howToUse,
     image,
     category
   }
@@ -30,6 +32,8 @@ export const CATEGORY_BY_SLUG_QUERY =
     name,
     description,
     price,
+    ingredients,
+    howToUse,
     image,
     category
   }
@@ -42,6 +46,8 @@ export const PRODUCT_BY_SLUG_QUERY =
   name,
   description,
   price,
+  ingredients,
+  howToUse,
   image,
   category
 }`);

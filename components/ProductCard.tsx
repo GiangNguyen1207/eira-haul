@@ -36,7 +36,7 @@ export function ProductCard({ product, categorySlug }: ProductCardProps) {
 			<div className="flex flex-1 flex-col p-5">
 				<Link
 					href={`/products/${categorySlug}/${productSlug}`}
-					className="font-serif font-semibold text-lg leading-tight text-foreground hover:text-primary transition"
+					className="line-clamp-2 font-serif font-semibold text-lg leading-tight text-foreground transition hover:text-primary"
 				>
 					{name}
 				</Link>
@@ -45,7 +45,7 @@ export function ProductCard({ product, categorySlug }: ProductCardProps) {
 						{description}
 					</p>
 				)}
-				<p className="font-serif font-semibold text-xl text-foreground mt-5">
+				<p className="mt-auto pt-5 font-serif font-semibold text-xl text-foreground">
 					€{product.price.toFixed(2)}
 				</p>
 			</div>

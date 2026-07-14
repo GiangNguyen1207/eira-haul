@@ -206,7 +206,7 @@ export type AllSanitySchemaTypes =
 
 // Source: sanity/lib/queries.ts
 // Variable: CATEGORIES_QUERY
-// Query: *[_type == "category"]{  id,  name,  jpName,  description,  slug,  "products": *[_type == "product" && category == ^.slug]{    id,    productSlug,    name,    description,    price,    image,    category  }}
+// Query: *[_type == "category"]{  id,  name,  jpName,  description,  slug,  "products": *[_type == "product" && category == ^.slug]{    id,    productSlug,    name,    description,    price,    ingredients,    howToUse,    image,    category  }}
 export type CATEGORIES_QUERY_RESULT = Array<{
   id: number | null;
   name: string | null;
@@ -219,6 +219,8 @@ export type CATEGORIES_QUERY_RESULT = Array<{
     name: string | null;
     description: string | null;
     price: number | null;
+    ingredients: null;
+    howToUse: null;
     image: {
       asset?: SanityImageAssetReference;
       media?: unknown;
@@ -232,7 +234,7 @@ export type CATEGORIES_QUERY_RESULT = Array<{
 
 // Source: sanity/lib/queries.ts
 // Variable: CATEGORY_BY_SLUG_QUERY
-// Query: *[_type == "category" && slug == $slug][0]{  id,  name,  jpName,  description,  slug,  "products": *[_type == "product" && category == ^.slug]{    id,    productSlug,    name,    description,    price,    image,    category  }}
+// Query: *[_type == "category" && slug == $slug][0]{  id,  name,  jpName,  description,  slug,  "products": *[_type == "product" && category == ^.slug]{    id,    productSlug,    name,    description,    price,    ingredients,    howToUse,    image,    category  }}
 export type CATEGORY_BY_SLUG_QUERY_RESULT = {
   id: number | null;
   name: string | null;
@@ -245,6 +247,8 @@ export type CATEGORY_BY_SLUG_QUERY_RESULT = {
     name: string | null;
     description: string | null;
     price: number | null;
+    ingredients: null;
+    howToUse: null;
     image: {
       asset?: SanityImageAssetReference;
       media?: unknown;
@@ -258,13 +262,15 @@ export type CATEGORY_BY_SLUG_QUERY_RESULT = {
 
 // Source: sanity/lib/queries.ts
 // Variable: PRODUCT_BY_SLUG_QUERY
-// Query: *[_type == "product" && productSlug == $productSlug][0]{  id,  productSlug,  name,  description,  price,  image,  category}
+// Query: *[_type == "product" && productSlug == $productSlug][0]{  id,  productSlug,  name,  description,  price,  ingredients,  howToUse,  image,  category}
 export type PRODUCT_BY_SLUG_QUERY_RESULT = {
   id: number | null;
   productSlug: string | null;
   name: string | null;
   description: string | null;
   price: number | null;
+  ingredients: null;
+  howToUse: null;
   image: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -279,8 +285,8 @@ export type PRODUCT_BY_SLUG_QUERY_RESULT = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "category"]{\n  id,\n  name,\n  jpName,\n  description,\n  slug,\n  "products": *[_type == "product" && category == ^.slug]{\n    id,\n    productSlug,\n    name,\n    description,\n    price,\n    image,\n    category\n  }\n}': CATEGORIES_QUERY_RESULT;
-    '*[_type == "category" && slug == $slug][0]{\n  id,\n  name,\n  jpName,\n  description,\n  slug,\n  "products": *[_type == "product" && category == ^.slug]{\n    id,\n    productSlug,\n    name,\n    description,\n    price,\n    image,\n    category\n  }\n}': CATEGORY_BY_SLUG_QUERY_RESULT;
-    '*[_type == "product" && productSlug == $productSlug][0]{\n  id,\n  productSlug,\n  name,\n  description,\n  price,\n  image,\n  category\n}': PRODUCT_BY_SLUG_QUERY_RESULT;
+    '*[_type == "category"]{\n  id,\n  name,\n  jpName,\n  description,\n  slug,\n  "products": *[_type == "product" && category == ^.slug]{\n    id,\n    productSlug,\n    name,\n    description,\n    price,\n    ingredients,\n    howToUse,\n    image,\n    category\n  }\n}': CATEGORIES_QUERY_RESULT;
+    '*[_type == "category" && slug == $slug][0]{\n  id,\n  name,\n  jpName,\n  description,\n  slug,\n  "products": *[_type == "product" && category == ^.slug]{\n    id,\n    productSlug,\n    name,\n    description,\n    price,\n    ingredients,\n    howToUse,\n    image,\n    category\n  }\n}': CATEGORY_BY_SLUG_QUERY_RESULT;
+    '*[_type == "product" && productSlug == $productSlug][0]{\n  id,\n  productSlug,\n  name,\n  description,\n  price,\n  ingredients,\n  howToUse,\n  image,\n  category\n}': PRODUCT_BY_SLUG_QUERY_RESULT;
   }
 }

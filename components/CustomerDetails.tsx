@@ -16,7 +16,6 @@ interface CustomerDetailsProps {
 	errors: FieldErrors<CustomerDetailsInput>;
 	submitForm: () => void;
 	loading?: boolean;
-	error?: string | null;
 }
 
 export default function CustomerDetails({
@@ -24,12 +23,10 @@ export default function CustomerDetails({
 	errors,
 	submitForm,
 	loading,
-	error,
 }: CustomerDetailsProps) {
 	const labelBaseClassName = "block text-xs font-medium text-foreground";
 	const inputBaseClassName =
 		"mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground outline-none transition focus:border-primary";
-	console.log(errors);
 
 	return (
 		<div className="rounded-xl border border-border bg-card p-6">
@@ -97,12 +94,10 @@ export default function CustomerDetails({
 						</p>
 					)}
 				</div>
-
-				{error && <p className="text-xs text-red-500">{error}</p>}
 				<Button
 					label={loading ? PLACING_ORDER : PLACE_ORDER}
 					type="submit"
-					variant="primary"
+					variant="disabled"
 					disabled={loading}
 					className="mt-2 w-full text-sm font-semibold text-primary-foreground disabled:opacity-50"
 				/>

@@ -18,3 +18,9 @@ export interface OrderInput {
 	total: number;
 	reference: string;
 }
+
+export type ConfirmInfo = {
+	name: string;
+	reference: string;
+	total: number;
+};

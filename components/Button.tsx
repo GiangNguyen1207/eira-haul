@@ -1,6 +1,8 @@
+import { twMerge } from "tailwind-merge";
+
 interface ButtonProps {
 	label: string;
-	variant: "primary" | "secondary" | "ghost";
+	variant: "primary" | "ghost" | "disabled";
 	onClick?: () => void;
 	children?: React.ReactNode;
 	className?: string;
@@ -25,20 +27,21 @@ export default function Button({
 			variantClasses =
 				"text-white bg-primary hover:bg-primary/90 focus:ring-primary";
 			break;
-		case "secondary":
-			variantClasses =
-				"text-gray-700 bg-gray-200 hover:bg-gray-300 focus:ring-gray-400";
-			break;
 		case "ghost":
 			variantClasses = "bg-transparent hover:text-primary focus:text-primary";
 			break;
+		case "disabled":
+			variantClasses = "bg-primary/90 cursor-not-allowed";
+			break;
+		default:
+			variantClasses = "";
 	}
 
 	return (
 		<button
 			type={type}
 			disabled={disabled}
-			className={`${baseClasses} ${variantClasses} ${className ?? ""}`}
+			className={twMerge(baseClasses, variantClasses, className)}
 			onClick={onClick}
 		>
 			{label}
