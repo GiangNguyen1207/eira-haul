@@ -1,5 +1,8 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
 import { supabase } from "./supabase";
-import type { CartItem } from "./types";
+import { createSupabaseServer } from "./supabase-server";
 import type { OrderInput } from "./types";
 
 export async function createOrder(input: OrderInput): Promise<string> {
@@ -33,6 +36,19 @@ export async function createOrder(input: OrderInput): Promise<string> {
 	return order.id;
 }
 
+export async function getOrders() {
+	const client = await createSupabaseServer();
+	const { data, error } = await client
+		.from("orders")
+		.select(
+			"id, reference, customer_name, customer_email, customer_phone, total, status, created_at",
+		)
+		.order("created_at", { ascending: false });
+
+	if (error) return [];
+	return data;
+}
+
 export async function getOrderByReference(reference: string) {
 	const { data, error } = await supabase
 		.from("orders")
@@ -42,4 +58,10 @@ export async function getOrderByReference(reference: string) {
 
 	if (error) return null;
 	return data;
+}
+
+export async function confirmOrder(id: string) {
+	const client = await createSupabaseServer();
+	await client.from("orders").update({ status: "confirmed" }).eq("id", id);
+	revalidatePath("/admin/orders");
 }

@@ -1,5 +1,5 @@
 "use client";
-import { FROM_JP, MENU } from "@/constant";
+import { FROM_JP, LOGO, MENU } from "@/constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Badge from "@/components/Badge";
@@ -15,7 +15,7 @@ export function AppBar() {
 		<header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
 			<div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
 				<Link href="/" className="flex items-baseline gap-2">
-					<span className="text-xl font-semibold text-primary">Eira Haul</span>
+					<span className="text-xl font-semibold text-primary">{LOGO}</span>
 					<span className="hidden text-xs uppercase tracking-[0.2em] text-muted-foreground sm:inline">
 						{FROM_JP}
 					</span>

@@ -49,12 +49,11 @@ export default function CartPage() {
 			router.push(`/orders/${reference}`);
 		} catch {
 			toast.error(ERROR_PLACING_ORDER);
-		} finally {
 			setLoading(false);
 		}
 	};
 
-	if (!mounted) {
+	if (!mounted || loading) {
 		return (
 			<div className="mx-auto w-6xl px-6 py-14">
 				<div className="h-3 w-32 animate-pulse rounded bg-muted" />

@@ -21,8 +21,9 @@ export function ProductCard({ product, categorySlug }: ProductCardProps) {
 				{image ? (
 					<Image
 						src={urlFor(image).width(400).height(300).url()}
-						alt={name ?? ""}
+						alt={name}
 						fill
+						sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 						className="object-cover transition group-hover:scale-105"
 					/>
 				) : (

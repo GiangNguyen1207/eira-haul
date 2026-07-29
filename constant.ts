@@ -68,6 +68,9 @@ export const STEPS = [
 // Product detail page
 export const PRODUCT_NOT_FOUND = "Product not found.";
 export const CATEGORY = "Category";
+export const HOW_TO_USE = "How to use";
+export const HOW_TO_MAKE = "How to make";
+export const HOW_TO_STORE = "How to store";
 
 // Footer
 export const FOOTER_ADDRESS = "Mannerheimintie 12, 00100 Helsinki, Finland";
@@ -110,3 +113,35 @@ export const SCAN_QR_CODE = "Scan the QR code or send to the number below.";
 export const MOBILEPAY_NUMBER_LABEL = "MobilePay number";
 export const PAYMENT_AMOUNT_LABEL = "Amount";
 export const REFERENCE_LABEL = "Reference (add to message)";
+
+// Admin page
+export const ADMIN_LOGIN = "Admin login";
+export const USERNAME = "Username";
+export const EMAIL = "Email";
+export const PASSWORD = "Password";
+export const LOGIN = "Login";
+export const ERROR_INVALID_CREDENTIALS = "Invalid email or password.";
+export const LOGOUT = "Logout";
+export const ORDERS = "Orders";
+export const NO_ORDERS = "No orders yet.";
+export const COL_REFERENCE = "Reference";
+export const COL_CUSTOMER = "Customer";
+export const COL_EMAIL = "Email";
+export const COL_PHONE = "Phone";
+export const COL_TOTAL = "Total";
+export const COL_STATUS = "Status";
+export const COL_DATE = "Date";
+export const STATUS_PENDING = "pending";
+export const STATUS_CONFIRMED = "confirmed";
+export const CONFIRM = "Confirm";
+export const COL_ACTION = "Action";
+export const COLS = [
+	COL_REFERENCE,
+	COL_CUSTOMER,
+	COL_EMAIL,
+	COL_PHONE,
+	COL_TOTAL,
+	COL_STATUS,
+	COL_DATE,
+	COL_ACTION,
+];

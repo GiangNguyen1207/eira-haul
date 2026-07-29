@@ -5,6 +5,7 @@ import { urlFor } from "@/sanity/lib/image";
 import type { Product } from "@/sanity/lib/fetchers";
 import AddToCart from "@/components/AddToCart";
 import Expandable from "@/components/Expandable";
+import { HOW_TO_USE, HOW_TO_MAKE, HOW_TO_STORE } from "@/constant";
 
 interface ProductDetailSectionProps {
 	product: Product;
@@ -13,7 +14,9 @@ interface ProductDetailSectionProps {
 export default function ProductDetailSection({
 	product,
 }: ProductDetailSectionProps) {
-	const { name, description, category, image, ingredients, howToUse } = product;
+  const { name, description, category, image, ingredients, howToUse, howToMake, howToStore } = product;
+  
+  const showIngredients = category !== 'matcha';
 
 	return (
 		<div className="grid gap-10 lg:grid-cols-2">
@@ -23,6 +26,7 @@ export default function ProductDetailSection({
 						src={urlFor(image).width(800).height(800).url()}
 						alt={name}
 						fill
+						sizes="(max-width: 1024px) 100vw, 50vw"
 						className="object-cover"
 						priority
 					/>
@@ -47,10 +51,12 @@ export default function ProductDetailSection({
 				<AddToCart product={product} />
 			</div>
 			<div className="mt-6 col-span-full">
-				{ingredients && (
-					<Expandable label="Ingredients" content={ingredients} />
-				)}
-				{howToUse && <Expandable label="How to use" content={howToUse} />}
+        {showIngredients && (
+          <Expandable label="Ingredients" content={ingredients} />
+        )}
+        {howToUse && <Expandable label={HOW_TO_USE} content={howToUse} />}
+        {howToMake && <Expandable label={HOW_TO_MAKE} content={howToMake} />}
+        {howToStore && <Expandable label={HOW_TO_STORE} content={howToStore} />}
 			</div>
 		</div>
 	);

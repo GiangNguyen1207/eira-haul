@@ -48,51 +48,6 @@ export default async function ProductDetailPage({
 	);
 }
 
-// function AddToCart({
-// 	product,
-// }: {
-// 	product: { id: number; name: string; price: number };
-// }) {
-// 	const { add } = useCart();
-// 	const [quantity, setQuantity] = useState(1);
-// 	const [added, setAdded] = useState(false);
-
-// 	const handleAdd = () => {
-// 		const cartItem: CartItem = {
-// 			id: product.id,
-// 			name: product.name,
-// 			price: product.price,
-// 			quantity,
-// 		};
-// 		add(cartItem);
-// 		setAdded(true);
-// 		window.setTimeout(() => setAdded(false), 1200);
-// 	};
-
-// 	return (
-// 		<div className="mt-8 flex items-center justify-between gap-6">
-// 			<span className="font-serif text-3xl text-foreground">
-// 				€{product.price.toFixed(2)}
-// 			</span>
-// 			<div className="flex items-center gap-3">
-// 				<QuantityStepper value={quantity} onChange={setQuantity} />
-// 				<button
-// 					type="button"
-// 					onClick={handleAdd}
-// 					className="flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
-// 				>
-// 					{added ? (
-// 						<CheckIcon className="size-4" />
-// 					) : (
-// 						<ShoppingCartIcon className="size-4" />
-// 					)}
-// 					{added ? "Added to cart" : "Add to cart"}
-// 				</button>
-// 			</div>
-// 		</div>
-// 	);
-// }
-
 // function RelatedCard({
 // 	product,
 // 	categorySlug,

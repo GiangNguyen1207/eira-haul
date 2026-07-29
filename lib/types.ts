@@ -24,3 +24,8 @@ export type ConfirmInfo = {
 	reference: string;
 	total: number;
 };
+
+export type AdminLogin = {
+	email: string;
+	password: string;
+};

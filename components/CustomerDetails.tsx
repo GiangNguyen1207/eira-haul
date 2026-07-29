@@ -36,7 +36,7 @@ export default function CustomerDetails({
 			<p className="mt-1 text-xs text-muted-foreground">
 				{CONFIRMATION_DETAILS_DESCRIPTION}
 			</p>
-			<form className="mt-5 space-y-4" onSubmit={submitForm}>
+			<form className="mt-5 space-y-4" onSubmit={submitForm} noValidate>
 				<div>
 					<label htmlFor="name" className={labelBaseClassName}>
 						{NAME}
