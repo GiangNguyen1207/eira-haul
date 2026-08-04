@@ -2,13 +2,26 @@
 
 import { FROM_JP, LOGO, LOGOUT } from "@/constant";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import Button from "@/components/Button";
+import type { User } from "@supabase/supabase-js";
 
 export default function AdminLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	const router = useRouter();
+	const [user, setUser] = useState<User | null>(null);
+
+	useEffect(() => {
+		supabase.auth.getUser().then(({ data }) => setUser(data.user));
+
+		const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+			setUser(session?.user ?? null);
+		});
+
+		return () => subscription.unsubscribe();
+	}, []);
 
 	const handleLogout = async () => {
 		await supabase.auth.signOut();
@@ -25,13 +38,15 @@ export default function AdminLayout({
 							{FROM_JP}
 						</span>
 					</div>
-					<Button
-						type="button"
-						variant="ghost"
-						label={LOGOUT}
-						onClick={handleLogout}
-						className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition hover:border-primary hover:text-foreground"
-					/>
+					{user && (
+						<Button
+							type="button"
+							variant="ghost"
+							label={LOGOUT}
+							onClick={handleLogout}
+							className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition hover:border-primary hover:text-foreground"
+						/>
+					)}
 				</div>
 			</header>
 			<main>{children}</main>

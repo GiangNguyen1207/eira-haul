@@ -16,7 +16,7 @@ export default async function CategoryPage({
 
 	return (
 		<div className="flex flex-col py-12 px-6 mx-auto max-w-6xl gap-14">
-			<ProductRow category={category} />
+			<ProductRow category={category} showAllProducts />
 		</div>
 	);
 }

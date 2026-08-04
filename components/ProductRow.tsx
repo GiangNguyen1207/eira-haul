@@ -5,11 +5,12 @@ import { ProductCard } from "./ProductCard";
 import { PRODUCT_NOT_FOUND, VIEW_ALL } from "@/constant";
 
 type Props = {
-	category: Category;
+  category: Category;
+  showAllProducts?: boolean;
 };
 
-export default function ProductRow({ category }: Readonly<Props>) {
-	const products = category.products?.slice(0, 4) ?? [];
+export default function ProductRow({ category, showAllProducts = false }: Readonly<Props>) {
+	const products = showAllProducts ? category.products : category.products?.slice(0, 4);
 
 	return (
 		<div>
@@ -21,14 +22,16 @@ export default function ProductRow({ category }: Readonly<Props>) {
 					<p className="text-sm font-medium text-muted-foreground">
 						{category.jpName} · {category.description}
 					</p>
-				</div>
-				<Link
-					href={`/products/${category.slug}`}
-					className="flex items-center text-sm font-medium text-muted-foreground transition hover:text-primary"
-				>
-					{VIEW_ALL}
-					<ArrowRightIcon className="size-4 ml-1" />
-				</Link>
+        </div>
+        {!showAllProducts && (
+          <Link
+            href={`/products/${category.slug}`}
+            className="flex items-center text-sm font-medium text-muted-foreground transition hover:text-primary"
+          >
+            {VIEW_ALL}
+            <ArrowRightIcon className="size-4 ml-1" />
+				  </Link>
+        )}
 			</div>
 			<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 				{products.length > 0 ? (

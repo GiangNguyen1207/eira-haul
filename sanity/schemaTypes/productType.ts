@@ -39,7 +39,8 @@ export const productType = defineType({
 		}),
 		defineField({
 			name: "howToUse",
-			type: "string",
+			type: "array",
+			of: [{ type: "block" }],
     }),
     defineField({
 			name: "howToMake",

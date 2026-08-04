@@ -34,7 +34,24 @@ export type Product = {
   name?: string;
   description?: string;
   ingredients?: string;
-  howToUse?: string;
+  howToUse?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   howToMake?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -241,7 +258,24 @@ export type CATEGORIES_QUERY_RESULT = Array<{
     description: string | null;
     price: number | null;
     ingredients: string | null;
-    howToUse: string | null;
+    howToUse: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
     howToMake: Array<{
       children?: Array<{
         marks?: Array<string>;
@@ -288,7 +322,24 @@ export type CATEGORY_BY_SLUG_QUERY_RESULT = {
     description: string | null;
     price: number | null;
     ingredients: string | null;
-    howToUse: string | null;
+    howToUse: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
     howToMake: Array<{
       children?: Array<{
         marks?: Array<string>;
@@ -329,7 +380,24 @@ export type PRODUCT_BY_SLUG_QUERY_RESULT = {
   description: string | null;
   price: number | null;
   ingredients: string | null;
-  howToUse: string | null;
+  howToUse: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
   howToMake: Array<{
     children?: Array<{
       marks?: Array<string>;
