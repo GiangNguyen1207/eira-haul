@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Shippori_Mincho } from "next/font/google";
-import { SanityLive } from "@/sanity/lib/live";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,8 +15,8 @@ const shipporiMincho = Shippori_Mincho({
 });
 
 export const metadata: Metadata = {
-	title: "Eira Haul",
-	description: "Japanese doorstep delights",
+	title: "Eira Haul — Shop Pulse",
+	description: "Financial planning & business health for your stationery shop",
 };
 
 export default function RootLayout({
@@ -31,7 +30,6 @@ export default function RootLayout({
 			className={`${inter.variable} ${shipporiMincho.variable} h-full antialiased`}
 		>
 			<body className="min-h-full flex flex-col">
-				<SanityLive />
 				{children}
 			</body>
 		</html>

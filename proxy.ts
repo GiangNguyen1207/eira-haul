@@ -1,6 +1,8 @@
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
+// Shop Pulse is an owner-only internal tool: every route requires a session,
+// except the login page itself. (Next.js 16 renamed Middleware → Proxy.)
 export async function proxy(request: NextRequest) {
 	const response = NextResponse.next({ request });
 
@@ -21,22 +23,24 @@ export async function proxy(request: NextRequest) {
 		},
 	);
 
-	const { data: { session } } = await supabase.auth.getSession();
+	const {
+		data: { session },
+	} = await supabase.auth.getSession();
 	const { pathname } = request.nextUrl;
-	const isLoginPage = pathname === "/admin/login";
-	const isAdminPage = pathname.startsWith("/admin");
+	const isLoginPage = pathname === "/login";
 
-	if (isAdminPage && !isLoginPage && !session) {
-		return NextResponse.redirect(new URL("/admin/login", request.url));
+	if (!isLoginPage && !session) {
+		return NextResponse.redirect(new URL("/login", request.url));
 	}
 
 	if (isLoginPage && session) {
-		return NextResponse.redirect(new URL("/admin/orders", request.url));
+		return NextResponse.redirect(new URL("/", request.url));
 	}
 
 	return response;
 }
 
 export const config = {
-	matcher: ["/admin/:path*"],
+	// Run on everything except Next internals and static assets.
+	matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)"],
 };
